@@ -1,0 +1,354 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>伊心语开单管理系统</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="generator" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <link href="../static/css/haiersoft.css" rel="stylesheet" type="text/css" media="screen,print"/>
+    <link href="../static/css/print.css" rel="stylesheet" type="text/css" media="print"/>
+    <script src="../static/js/jquery-1.10.1.min.js"></script>
+    <script src="../static/js/side.js" type="text/javascript"></script>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- wrap_left -->
+<div class="wrap_left" id="frmTitle" name="fmTitle">
+    <!-- Logo -->
+    <div id="Logo"><span>人单合一</span></div>
+    <!-- /Logo -->
+
+    <!-- menu_list -->
+    <script>
+        $(function () {
+            $(".menu_list dd");
+            $(".menu_list dt").click(function () {
+                $(this).toggleClass("open").next().slideToggle("fast");
+            });
+        });
+    </script>
+    <div class="menu_list">
+        <dl>
+            <dt><span>品类管理</span></dt>
+            <dd><a href="{{ url_for('goodslist') }}" title="品类管理">品类管理</a>
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类" class="active">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+
+            <dt><span>选购开单</span></dt>
+            <dd><a href="{{ url_for('orderlist') }}" title="选购开单">选购开单</a>
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+
+                {#<dt><span>一级分类名称</span></dt>#}
+                {#<dd><a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+                {##}
+                {#<dt><span>一级分类名称</span></dt>#}
+                {#<dd><a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+                {##}
+                {#<dt><span>一级分类名称</span></dt>#}
+                {#<dd><a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+                {##}
+                {#<dt><span>一级分类名称</span></dt>#}
+                {#<dd><a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+                {##}
+                {#<dt><span>一级分类名称</span></dt>#}
+                {#<dd><a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+        </dl>
+    </div>
+    <!-- /menu_list -->
+</div>
+<!-- /wrap_left -->
+
+<!-- picBox -->
+<div class="picBox" onclick="switchSysBar()" id="switchPoint"></div>
+<!-- /picBox -->
+
+
+<!-- wrap_right -->
+<div class="wrap_right">
+    <header>
+        <!-- Header -->
+        <div id="Header">
+            <!-- Head -->
+            <div id="Head">
+                <h1 title="伊心语进销存管理系统"><img src="../static/images/common/page_ttl.gif" width="398" height="26"
+                                            alt="伊心语进销存管理系统"></h1>
+                <script language="javascript">
+                    function showmenu(id) {
+                        id.style.visibility = "visible";
+                    }
+
+                    function hidmenu() {
+                        UserList.style.visibility = "hidden";
+                    }
+
+                    document.onclick = hidmenu;
+                </script>
+                <div class="user"><a href="javascript:showmenu(UserList)">admin</a>
+                    <div id="UserList"><a href="">修改</a>
+                        <a href="">注销</a>
+                        <a href="">退出</a></div>
+                </div>
+            </div>
+            <!-- /Head -->
+            {#<nav>#}
+            {#<ul id="Navi">#}
+            {#<li><a href=""><img src="static/images/common/navi01.png" width="30" height="36" alt="主页管理"><span>主页管理</span></a></li>#}
+            {#<li><a href=""><img src="static/images/common/navi02.png" width="36" height="36" alt="系统管理"><span>系统管理</span></a></li>#}
+            {#<li class="active"><a href=""><img src="static/images/common/navi03.png" width="26" height="36" alt="合同信息"><span>合同信息</span></a></li>#}
+            {#<li><a href=""><img src="static/images/common/navi04.png" width="34" height="36" alt="基础数据"><span>基础数据</span></a></li>#}
+            {#<li><a href=""><img src="static/images/common/navi05.png" width="24" height="36" alt="预算管理"><span>预算管理</span></a></li>#}
+            {#<li><a href=""><img src="static/images/common/navi06.png" width="36" height="36" alt="项目管理"><span>项目管理</span></a></li>#}
+            {#<li><a href=""><img src="static/images/common/navi07.png" width="34" height="36" alt="资金支付-发票"><span>资金支付-发票</span></a></li>#}
+            {#<li><a href=""><img src="static/images/common/navi08.png" width="34" height="36" alt="产品管理信息"><span>产品管理信息</span></a></li>#}
+            {#</ul>#}
+            {#</nav>#}
+        </div>
+        <!-- /Header -->
+    </header>
+
+
+    <!-- Contents -->
+    <div id="Contents">
+        <script type="text/javascript">
+            $(function () {
+                $(".select").each(function () {
+                    var s = $(this);
+                    var z = parseInt(s.css("z-index"));
+                    var dt = $(this).children("dt");
+                    var dd = $(this).children("dd");
+                    var _show = function () {
+                        dd.slideDown(200);
+                        dt.addClass("cur");
+                        s.css("z-index", z + 1);
+                    };
+                    var _hide = function () {
+                        dd.slideUp(200);
+                        dt.removeClass("cur");
+                        s.css("z-index", z);
+                    };
+                    dt.click(function () {
+                        dd.is(":hidden") ? _show() : _hide();
+                    });
+                    dd.find("a").click(function () {
+                        dt.html($(this).html());
+                        _hide();
+                    });
+                    $("body").click(function (i) {
+                        !$(i.target).parents(".select").first().is(s) ? _hide() : "";
+                    });
+                })
+            })
+        </script>
+        <!-- TopMain -->
+        <div id="TopMain">
+            <!-- selectbox -->
+            <div class="selectbox floatL mag_r20">
+                <span class="sttl">种类：</span>
+                <dl class="select" style="width:200px;">
+                    <dt>全部</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="#">全部</a></li>
+                            <li><a href="#">选项选项B</a></li>
+                            <li><a href="#">选项选项C</a></li>
+                            <li><a href="#">选项选项D</a></li>
+                            <li><a href="#">选项选项E</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            <!-- /selectbox -->
+
+            {#<!-- selectbox -->#}
+            {#<div class="selectbox floatL mag_r20">#}
+            {#<span class="sttl">部门：</span>#}
+            {#<dl class="select" style="width:200px;">#}
+            {#<dt>全部</dt>#}
+            {#<dd><ul>#}
+            {#<li><a href="#">选项选项A</a></li>#}
+            {#<li><a href="#">选项选项B</a></li>#}
+            {#<li><a href="#">选项选项C</a></li>#}
+            {#<li><a href="#">选项选项D</a></li>#}
+            {#<li><a href="#">选项选项E</a></li>#}
+            {#</ul></dd></dl>#}
+            {#</div>#}
+            {#<!-- /selectbox -->#}
+
+            <!-- btn_box -->
+            <div class="btn_box floatL"><input name="" type="button" value="查询"
+                                               onmousemove="this.className='input_move'"
+                                               onmouseout="this.className='input_out'"></div>
+            <!-- /btn_box -->
+            <div class="btn_box floatL">
+                <a href="/add_goods">
+                    <input name="" type="button" value="添加"
+                           onmousemove="this.className='input_move'"
+                           onmouseout="this.className='input_out'">
+                </a>
+            </div>
+            <div class="btn_box floatL">
+                <a href="/goodslist"><input name="" type="button" value="返回"
+                                            onmousemove="this.className='input_move'"
+                                            onmouseout="this.className='input_out'">
+                </a>
+            </div>
+
+            {#        </div>#}
+            {#        <!-- /TopMain -->#}
+            {##}
+            {#        <!-- MainForm -->#}
+            {#        <div id="MainForm">#}
+            {#            <div class="form_boxA">#}
+            {#                <h2>年度预算列表</h2>#}
+            {#                <table cellpadding="0" cellspacing="0">#}
+            {#                    <tr>#}
+            {#                        <th>序号</th>#}
+            {#                        <th>商品</th>#}
+            {#                        <th>价格</th>#}
+            {#                        <th>操作</th>#}
+            {#                    </tr>#}
+            {#                    {% for i in goods_list %}#}
+            {#                        <tr>#}
+            {#                            <td>{{ i[1] }}</td>#}
+            {#                            <td>{{ i[0] }}</td>#}
+            {#                            <td>{{ i[2] }}</td>#}
+            {#                            <td><a href="/delete_goods/{{ i[1] }}">删除</a> | <a href="#">编辑</a></td>#}
+            {#                        </tr>#}
+            {#                    {% endfor %}#}
+            {##}
+            {##}
+            {#                </table>#}
+            {#                <p class="msg">共找到47条年度预算记录，当前显示从第1条至第10条</p>#}
+            {#            </div>#}
+            {#        </div>#}
+            <!-- /MainForm -->
+            <div id="Popup">
+
+                <!-- SubPopup -->
+                <div id="SubPopup">
+                    <script type="text/javascript">
+                        $(function () {
+                            $(".select").each(function () {
+                                var s = $(this);
+                                var z = parseInt(s.css("z-index"));
+                                var dt = $(this).children("dt");
+                                var dd = $(this).children("dd");
+                                var _show = function () {
+                                    dd.slideDown(200);
+                                    dt.addClass("cur");
+                                    s.css("z-index", z + 1);
+                                };
+                                var _hide = function () {
+                                    dd.slideUp(200);
+                                    dt.removeClass("cur");
+                                    s.css("z-index", z);
+                                };
+                                dt.click(function () {
+                                    dd.is(":hidden") ? _show() : _hide();
+                                });
+                                dd.find("a").click(function () {
+                                    dt.html($(this).html());
+                                    _hide();
+                                });
+                                $("body").click(function (i) {
+                                    !$(i.target).parents(".select").first().is(s) ? _hide() : "";
+                                });
+                            })
+                        })
+                    </script>
+                    <div class="form_boxC">
+{#                        此外，你的表单 action 属性为空，这意味着表单会提交到当前页面的URL。
+                        如果这不是你的意图，你可能需要设置 action 属性为处理表单提交的路由URL。#}
+                        <form action="" method="post">
+                            <table cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <th width="100">商品信息 <span class="f_cB">*</span></th>
+                                    <td>
+                                        <div class="txtbox floatL" style="width:100px;"><input name="goods_name"
+                                                                                               type="text" size="5">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>商品单价 <span class="f_cB">*</span></th>
+                                    <td>
+                                        <div class="txtbox floatL" style="width:100px;"><input name="price" type="text"
+                                                                                               size="5">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div id="BtmBtn">
+                                <div class="btn_boxB floatR mag_l20"><input name="" type="button" value="取消"
+                                                                            onmousemove="this.className='input_move'"
+                                                                            onmouseout="this.className='input_out'">
+                                </div>
+                                <div class="btn_box floatR"><input name="" type="submit" value="提交"
+                                                                   onmousemove="this.className='input_move'"
+                                                                   onmouseout="this.className='input_out'"></div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <!-- SubPopup -->
+
+
+            </div>
+
+            <!-- PageNum -->
+            {#        <ul id="PageNum">#}
+            {#            <li><a href="">首页</a></li>#}
+            {#            <li><a href="">上一页</a></li>#}
+            {#            <li><a href="">1</a></li>#}
+            {#            <li><a href="">2</a></li>#}
+            {#            <li><a href="">3</a></li>#}
+            {#            <li><a href="">4</a></li>#}
+            {#            <li><a href="">5</a></li>#}
+            {#            <li><a href="">6</a></li>#}
+            {#            <li><a href="">下一页</a></li>#}
+            {#            <li><a href="">尾页</a></li>#}
+            {#        </ul>#}
+            <!-- /PageNum -->
+        </div>
+        <!-- /Contents -->
+
+        <!-- /footer -->
+        <footer>
+            <address>xx@xx.com 技术支持：球球因项目组<br>义乌黄姐电子商务有限公司版权所有 Copyright &copy; 2015 Haiersoft Corporation,
+                All
+                Rights.
+            </address>
+        </footer>
+        <!-- /footer -->
+
+    </div>
+    <!-- /wrap_right -->
+</body>
+</html>

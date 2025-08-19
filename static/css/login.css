@@ -1,0 +1,300 @@
+/* 完整的CSS重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-image: url(../images/common/微信图片_20240319114645.jpg);
+            /* background-image: url(./static/img/1.jpg); */
+            background-repeat: no-repeat;
+            /* 全屏铺满，自适应所有设备尺寸 */
+            background-size: cover;
+            /* 背景图片居中显示 */
+            background-position: center center;
+            /* 背景图片固定，不随滚动条移动 */
+            background-attachment: fixed;
+            /* 确保页面至少占满整个视窗高度 */
+            min-height: 100vh;
+            /* 确保页面宽度占满整个视窗宽度 */
+            width: 100%;
+            /* 使用flex布局来居中登录框 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #maxbox {
+            /* 移除margin设置，因为现在使用flex居中 */
+            padding: 20px 50px;
+            /*这里的90表示以不透明度90%显示*/
+            background-color: #00000090;
+            text-align: center;
+            width: 600px;
+            height: 400px;
+            border-radius: 10px;
+            /* 确保登录框在flex容器中正确显示 */
+            flex-shrink: 0;
+        }
+
+        #maxbox h1 {
+            padding: 0;
+            padding-top: 60px;
+            color: white;
+            font-size: 30px;
+            padding-bottom: 4px;
+            border-bottom: solid 1px white;
+        }
+
+        #maxbox h2 {
+            font-weight: 700;
+            color: white;
+        }
+
+        #maxbox .inputbox {
+            margin-top: 30px;
+
+        }
+
+        #maxbox .inputText {
+            margin-top: 20px;
+
+        }
+
+        #maxbox .inputText span {
+            color: white;
+            font-size: 18px;
+
+
+        }
+
+        #maxbox .inputText input {
+            border: 0;
+            padding: 6px;
+            border-bottom: 1px solid white;
+            /*这里的00表示不透明度为0，即透明显示*/
+            background-color: #FFFFFF00;
+            /* 使用更深的颜色，提高可读性 */
+            color: #f0f0f0;
+            font-weight: 500;
+        }
+
+        /* 增强placeholder文字的可见性 */
+        #maxbox .inputText input::placeholder {
+            color: #cccccc;
+            opacity: 1;
+        }
+
+        /* 输入框获得焦点时的样式 */
+        #maxbox .inputText input:focus {
+            outline: none;
+            color: #ffffff;
+            border-bottom: 2px solid #3498db;
+        }
+
+        /* 自动填充时的样式 */
+        #maxbox .inputText input:-webkit-autofill,
+        #maxbox .inputText input:-webkit-autofill:hover,
+        #maxbox .inputText input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+            -webkit-text-fill-color: #f0f0f0 !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+        #maxbox .inputbox .inputButton {
+            margin: 0;
+            border: 0;
+            margin-top: 20px;
+            width: 145px;
+            height: 25px;
+            /*给这个按钮变为圆角边角*/
+            border-radius: 25px;
+            color: white;
+            background-color: #3498db;
+        }
+
+        #sign_up {
+            margin-top: 50px;
+            color: white;
+            font-size: 17px;
+        }
+
+        #sign_up a {
+            color: #3498db;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* 响应式设计 - 适应不同设备尺寸 */
+        
+        /* 超大屏幕设备 (桌面电脑, 1200px 以上) */
+        @media (min-width: 1200px) {
+            #maxbox {
+                width: 600px;
+                height: 400px;
+            }
+        }
+
+        /* 大屏幕设备 (桌面电脑, 992px 到 1199px) */
+        @media (min-width: 992px) and (max-width: 1199px) {
+            #maxbox {
+                width: 500px;
+                height: 380px;
+            }
+        }
+
+        /* 中等屏幕设备 (平板电脑, 768px 到 991px) */
+        @media (min-width: 768px) and (max-width: 991px) {
+            #maxbox {
+                width: 450px;
+                height: 360px;
+            }
+            
+            #maxbox h1 {
+                font-size: 26px;
+                padding-top: 40px;
+            }
+        }
+
+        /* 小屏幕设备 (手机横屏, 576px 到 767px) */
+        @media (min-width: 576px) and (max-width: 767px) {
+            #maxbox {
+                width: 400px;
+                height: 340px;
+            }
+            
+            #maxbox h1 {
+                font-size: 24px;
+                padding-top: 30px;
+            }
+            
+            #maxbox .inputText input {
+                width: 200px;
+            }
+        }
+
+        /* 超小屏幕设备 (手机竖屏, 575px 以下) */
+        @media (max-width: 575px) {
+            #maxbox {
+                width: 90%;
+                max-width: 350px;
+                height: auto;
+                min-height: 320px;
+                padding: 15px;
+            }
+            
+            #maxbox h1 {
+                font-size: 22px;
+                padding-top: 20px;
+                padding-bottom: 10px;
+            }
+            
+            #maxbox h2 {
+                font-size: 18px;
+                margin: 10px 0;
+            }
+            
+            #maxbox .inputText input {
+                width: 180px;
+                font-size: 14px;
+            }
+            
+            #maxbox .inputbox .inputButton {
+                width: 120px;
+                height: 30px;
+                font-size: 14px;
+            }
+            
+            #maxbox .inputbox {
+                margin-top: 20px;
+            }
+        }
+
+        /* 确保在移动设备上背景图片也能正确显示 */
+        @media (max-width: 768px) {
+            body {
+                /* 在移动设备上，背景图片可能需要调整固定属性 */
+                background-attachment: scroll;
+            }
+        }
+
+        /* 超小屏幕的特殊处理 (iPhone SE 等) */
+        @media (max-width: 375px) {
+            #maxbox {
+                width: 95%;
+            }
+            
+            #maxbox h1 {
+                font-size: 20px;
+            }
+            
+            #maxbox .inputText input {
+                width: 160px;
+            }
+        }
+
+        /* 错误消息和成功消息样式 */
+        .error-message {
+            color: #ff6b6b;
+            background-color: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 14px;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .flash-message {
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 14px;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .flash-message.success {
+            color: #4CAF50;
+            background-color: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .flash-message.error {
+            color: #ff6b6b;
+            background-color: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+        }
+
+        /* 消息淡入动画 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 响应式消息样式 */
+        @media (max-width: 575px) {
+            .error-message,
+            .flash-message {
+                font-size: 12px;
+                padding: 8px;
+                margin: 10px 0;
+            }
+        }

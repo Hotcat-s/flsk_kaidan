@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>伊心语开单管理系统</title>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}"/>
+
+
+</head>
+
+<body>
+
+<!-- {#    <script>#}
+{#        var c="whoami?\nThe King of the fruit and flower mountation";#}
+{#        x=document.getElementsByName(name)#}
+{#        x.innerHTML=c#}
+        {#一般用来证明漏洞的存在，比如xss#}
+{#        alert(x.innerHTML)#}
+        {#confirm("this is confirm")#}
+        {#prompt("whoami")#}
+        {#alert(document.cookie)#}
+        {#document.write(Date())#}
+        {#alert(location.href)#}
+        {#alert(screen)#}
+        {#函数可以用于html里的事件#}
+{#        function changetext(id)#}
+{#        {#}
+{#            id.innerHTML="这个是刚改变的click";#}
+{#        }#}
+{#    </script>/#} -->
+    <div id="maxbox">
+        <h1>伊心语进销存管理系统</h1>
+        <h2 >请登录</h2>
+        <div class="inputbox">
+            <form name="frm" action="" method="post" onsubmit="return validateForm()">
+                <div class="inputText">
+                    <span class="iconfont icon-mine"></span>
+                    <input class="username" type="text" placeholder="用户名" name="user" id="username" value="{{ user if user else '' }}" />
+                </div>
+                <div class="inputText">
+                    <span class="iconfont icon-lock"></span>
+                    <input type="password" placeholder="密码" name="pwd" id="password" />
+                    <br>
+                </div>
+                <input class="inputButton" type="submit" value="登 录" />
+            </form>
+
+
+
+
+
+
+
+            <!-- 错误消息显示区域 -->
+            {% if msg %}
+                <div class="error-message">{{ msg }}</div>
+            {% endif %}
+            
+            <!-- Flash消息显示区域 -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value.trim();
+            var password = document.getElementById("password").value.trim();
+            
+            // 清除之前的错误消息
+            var errorMessages = document.getElementsByClassName("error-message");
+            for (var i = errorMessages.length - 1; i >= 0; i--) {
+                errorMessages[i].remove();
+            }
+            
+            // 检查空值
+            if (username === "" || password === "") {
+                showError("请输入用户名和密码");
+                return false;
+            }
+            
+            // 检查用户名格式（只允许字母）
+            var usernamePattern = /^[a-zA-Z]+$/;
+            if (!usernamePattern.test(username)) {
+                showError("用户名只能包含字母");
+                return false;
+            }
+            
+            // 检查密码格式（只允许字母和数字）
+            var passwordPattern = /^[a-zA-Z0-9]+$/;
+            if (!passwordPattern.test(password)) {
+                showError("密码只能包含字母和数字");
+                return false;
+            }
+            
+            return true;
+        }
+        
+        function showError(message) {
+            var errorDiv = document.createElement("div");
+            errorDiv.className = "error-message";
+            errorDiv.textContent = message;
+            
+            var form = document.getElementsByName("frm")[0];
+            form.parentNode.insertBefore(errorDiv, form.nextSibling);
+        }
+        
+        // 页面加载完成后，如果有错误消息，3秒后自动隐藏
+        document.addEventListener("DOMContentLoaded", function() {
+            var messages = document.querySelectorAll(".error-message, .flash-message");
+            messages.forEach(function(message) {
+                setTimeout(function() {
+                    message.style.opacity = "0";
+                    setTimeout(function() {
+                        if (message.parentNode) {
+                            message.parentNode.removeChild(message);
+                        }
+                    }, 300);
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+
+</html>

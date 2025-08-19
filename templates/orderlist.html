@@ -1,0 +1,541 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>伊心语开单管理系统</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="generator" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <link href="{{ url_for('static', filename='css/haiersoft.css') }}" rel="stylesheet" type="text/css" media="screen,print"/>
+    <link href="{{ url_for('static', filename='css/print.css') }}" rel="stylesheet" type="text/css" media="print"/>
+    <script src="{{ url_for('static', filename='js/jquery-1.10.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/side.js') }}" type="text/javascript"></script>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- wrap_left -->
+<div class="wrap_left" id="frmTitle" name="fmTitle">
+    <!-- Logo -->
+    <div id="Logo"><span>人单合一</span></div>
+    <!-- /Logo -->
+
+    <!-- menu_list -->
+    <script>
+        $(function () {
+            $(".menu_list dd");
+            $(".menu_list dt").click(function () {
+                $(this).toggleClass("open").next().slideToggle("fast");
+            });
+        });
+    </script>
+    <div class="menu_list">
+        <dl>
+            <dt><span>品类管理</span></dt>
+            <dd><a href="{{ url_for('goodslist') }}" title="品类管理">品类管理</a>
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类" class="active">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+
+            <dt><span>选购开单</span></dt>
+            <dd><a href="{{ url_for('orderlist') }}" title="选购开单">选购开单</a>
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+
+                {#<dt><span>一级分类名称</span></dt>#}
+                {#<dd><a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+                {##}
+                {#<dt><span>一级分类名称</span></dt>#}
+                {#<dd><a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+                {##}
+                {#<dt><span>一级分类名称</span></dt>#}
+                {#<dd><a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+                {##}
+                {#<dt><span>一级分类名称</span></dt>#}
+                {#<dd><a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+                {##}
+                {#<dt><span>一级分类名称</span></dt>#}
+                {#<dd><a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+        </dl>
+    </div>
+    <!-- /menu_list -->
+</div>
+<!-- /wrap_left -->
+
+<!-- picBox -->
+<div class="picBox" onclick="switchSysBar()" id="switchPoint"></div>
+<!-- /picBox -->
+
+
+<!-- wrap_right -->
+<div class="wrap_right">
+    <header>
+        <!-- Header -->
+        <div id="Header">
+            <!-- Head -->
+            <div id="Head">
+                <h1 title="伊心语进销存管理系统"><img src="{{ url_for('static', filename='images/common/page_ttl.gif') }}" width="398" height="26"
+                                            alt="伊心语进销存管理系统"></h1>
+                <script language="javascript">
+                    function showmenu(id) {
+                        id.style.visibility = "visible";
+                    }
+
+                    function hidmenu() {
+                        UserList.style.visibility = "hidden";
+                    }
+
+                    document.onclick = hidmenu;
+                </script>
+                <div class="user"><a href="javascript:showmenu(UserList)">admin</a>
+                    <div id="UserList">
+                        <a href="javascript:confirmLogout()">退出</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /Head -->
+            {#<nav>#}
+            {#<ul id="Navi">#}
+            {#<li><a href=""><img src="static/images/common/navi01.png" width="30" height="36" alt="主页管理"><span>主页管理</span></a></li>#}
+            {#<li><a href=""><img src="static/images/common/navi02.png" width="36" height="36" alt="系统管理"><span>系统管理</span></a></li>#}
+            {#<li class="active"><a href=""><img src="static/images/common/navi03.png" width="26" height="36" alt="合同信息"><span>合同信息</span></a></li>#}
+            {#<li><a href=""><img src="static/images/common/navi04.png" width="34" height="36" alt="基础数据"><span>基础数据</span></a></li>#}
+            {#<li><a href=""><img src="static/images/common/navi05.png" width="24" height="36" alt="预算管理"><span>预算管理</span></a></li>#}
+            {#<li><a href=""><img src="static/images/common/navi06.png" width="36" height="36" alt="项目管理"><span>项目管理</span></a></li>#}
+            {#<li><a href=""><img src="static/images/common/navi07.png" width="34" height="36" alt="资金支付-发票"><span>资金支付-发票</span></a></li>#}
+            {#<li><a href=""><img src="static/images/common/navi08.png" width="34" height="36" alt="产品管理信息"><span>产品管理信息</span></a></li>#}
+            {#</ul>#}
+            {#</nav>#}
+        </div>
+        <!-- /Header -->
+    </header>
+
+
+    <!-- Contents -->
+    <div id="Contents">
+        <script type="text/javascript">
+            $(function () {
+                $(".select").each(function () {
+                    var s = $(this);
+                    var z = parseInt(s.css("z-index"));
+                    var dt = $(this).children("dt");
+                    var dd = $(this).children("dd");
+                    var _show = function () {
+                        dd.slideDown(200);
+                        dt.addClass("cur");
+                        s.css("z-index", z + 1);
+                    };
+                    var _hide = function () {
+                        dd.slideUp(200);
+                        dt.removeClass("cur");
+                        s.css("z-index", z);
+                    };
+                    dt.click(function () {
+                        dd.is(":hidden") ? _show() : _hide();
+                    });
+                    dd.find("a").click(function (e) {
+                        dt.html($(this).html());
+                        _hide();
+                        // 让链接正常跳转，不阻止默认行为
+                    });
+                    $("body").click(function (i) {
+                        !$(i.target).parents(".select").first().is(s) ? _hide() : "";
+                    });
+                })
+            })
+        </script>
+        <!-- TopMain -->
+        <div id="TopMain">
+            <!-- selectbox -->
+            <!-- selectbox -->
+            <div class="selectbox floatL mag_r20">
+                <span class="sttl">类别：</span>
+                <dl class="select" style="width:200px;">
+                    <dt>{{ current_category_name }}</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="{{ url_for('orderlist') }}">全部</a></li>
+                            {% for category in categories %}
+                                <li><a href="{{ url_for('orderlist', category_id=category[0]) }}">{{ category[1] }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            <!-- /selectbox -->
+
+            <!-- 搜索框 -->
+            <div class="searchbox floatL mag_r20">
+                <form method="GET" action="{{ url_for('orderlist') }}" style="display: flex; align-items: center;">
+                    {% if current_category_id %}
+                        <input type="hidden" name="category_id" value="{{ current_category_id }}">
+                    {% endif %}
+                    <input type="text" name="search" value="{{ search_keyword or '' }}" 
+                           placeholder="搜索商品名称..." 
+                           style="width: 200px; height: 28px; padding: 0 10px; border: 1px solid #ddd; border-radius: 3px;">
+                    <input type="submit" value="查询" 
+                           style="height: 30px; margin-left: 5px; padding: 0 15px; background: #4CAF50; color: white; border: none; border-radius: 3px; cursor: pointer;">
+                </form>
+            </div>
+            <!-- /搜索框 -->
+        </div>
+        <!-- /TopMain -->
+
+        <!-- MainForm -->
+        <div id="MainForm">
+            <div class="form_boxA">
+{#                                <input type="text" type="hidden" name="sale_name" value="">#}
+
+                <form action="" method="post" target="_blank">
+{#                    这里的name和list名字要一直，如果那么名字不是datalist的id，可能出现下拉框里面没有内容#}
+                    <input id="name" name="name" placeholder="商品开单名："  list="typelist" class="form-control"
+                           style="height: 25px; margin-right:200px;">
+                    <datalist id="typelist">
+                        {% for foo in sale_name %}
+                            <option value="{{ foo }}">{{ foo }}</option>
+                        {% endfor %}
+                    </datalist>
+
+                    <input type="text" placeholder="客户名：" name="buy_name" style="height: 25px;">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <th><input type="checkbox" id="selectAllOrder" onchange="toggleAllOrderCheckboxes()"> 全选</th>
+                            <th>序号</th>
+                            <th>商品名称</th>
+                            <th>价格</th>
+                            <th>数量</th>
+                            {#                        <th>预算收入（元）</th>#}
+                            {#                        <th>预算成本（元）</th>#}
+                            {#                        <th>预算费用（元）</th>#}
+                            {#                        <th>状态</th>#}
+                            <th>操作</th>
+                        </tr>
+                        {% for i in goods_list %}
+                            <tr>
+                                <td><input type="checkbox" class="order-item-checkbox" name="product_{{ loop.index }}" value="{{ i[1] }}"
+                                           data-price="{{ i[2] }}" onchange="updateOrderSelectAll()"></td>
+                                <td>{{ i[0] }}</td>
+                                <td>{{ i[1] }}</td>
+                                <td>¥{{ "%.2f"|format(i[2]|float) }}</td>
+                                <!-- 隐藏字段用于在提交表单时携带商品信息 -->
+                                <input type="hidden" name="price_{{ loop.index }}" value="{{ i[2] }}">
+                                <input type="hidden" name="name_{{ loop.index }}" value="{{ i[1] }}">
+                                <input type="hidden" name="id_{{ loop.index }}" value="{{ i[0] }}">
+                                <td><input type="number" name="quantity_{{ loop.index }}" value="1" min="1"
+                                           style="width: 50px;"></td>
+                                <td><a href="#">查看</a> | <a href="#">操作</a></td>
+                            </tr>
+                        {% endfor %}
+
+                    </table>
+                    <div id="BtmBtn">
+                    </div>
+                    <div class="btn_box floatR"><input name="" type="submit" value="提交"
+                                                       onmousemove="this.className='input_move'"
+                                                       onmouseout="this.className='input_out'"></div>
+            </div>
+            </form>
+
+
+            <p class="msg">共找到{{ pagination.total_count }}条商品记录，当前显示从第{{ pagination.start_record }}条至第{{ pagination.end_record }}条</p>
+        </div>
+    </div>
+    <!-- /MainForm -->
+
+
+    <!-- PageNum -->
+            {% if pagination.total_pages > 1 %}
+        <ul id="PageNum">
+            <!-- 首页 -->
+            {% if pagination.page > 1 %}
+                {% if current_category_id %}
+                    <li><a href="{{ url_for('orderlist', category_id=current_category_id, page=1, search=search_keyword) }}">首页</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('orderlist', page=1, search=search_keyword) }}">首页</a></li>
+                {% endif %}
+            {% else %}
+                <li><span class="disabled">首页</span></li>
+            {% endif %}
+            
+            <!-- 上一页 -->
+            {% if pagination.has_prev %}
+                {% if current_category_id %}
+                    <li><a href="{{ url_for('orderlist', category_id=current_category_id, page=pagination.prev_page, search=search_keyword) }}">上一页</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('orderlist', page=pagination.prev_page, search=search_keyword) }}">上一页</a></li>
+                {% endif %}
+            {% else %}
+                <li><span class="disabled">上一页</span></li>
+            {% endif %}
+            
+            <!-- 页码 -->
+            {% for page_num in pagination.page_range %}
+                {% if page_num == pagination.page %}
+                    <li><span class="current">{{ page_num }}</span></li>
+                {% else %}
+                    {% if current_category_id %}
+                        <li><a href="{{ url_for('orderlist', category_id=current_category_id, page=page_num, search=search_keyword) }}">{{ page_num }}</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('orderlist', page=page_num, search=search_keyword) }}">{{ page_num }}</a></li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            
+            <!-- 下一页 -->
+            {% if pagination.has_next %}
+                {% if current_category_id %}
+                    <li><a href="{{ url_for('orderlist', category_id=current_category_id, page=pagination.next_page, search=search_keyword) }}">下一页</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('orderlist', page=pagination.next_page, search=search_keyword) }}">下一页</a></li>
+                {% endif %}
+            {% else %}
+                <li><span class="disabled">下一页</span></li>
+            {% endif %}
+            
+            <!-- 尾页 -->
+            {% if pagination.page < pagination.total_pages %}
+                {% if current_category_id %}
+                    <li><a href="{{ url_for('orderlist', category_id=current_category_id, page=pagination.total_pages, search=search_keyword) }}">尾页</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('orderlist', page=pagination.total_pages, search=search_keyword) }}">尾页</a></li>
+                {% endif %}
+            {% else %}
+                <li><span class="disabled">尾页</span></li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    <!-- /PageNum -->
+</div>
+<!-- /Contents -->
+
+<!-- /footer -->
+<footer>
+    <address>xx@xx.com 技术支持：球球因项目组<br>义乌黄姐电子商务有限公司版权所有 Copyright &copy; 2015 Haiersoft Corporation, All
+        Rights.
+    </address>
+</footer>
+<!-- /footer -->
+
+</div>
+<!-- /wrap_right -->
+
+<style>
+/* 分页样式改进 */
+#PageNum li .disabled {
+    color: #ccc;
+    cursor: not-allowed;
+    padding: 8px 12px;
+    display: inline-block;
+}
+
+#PageNum li .current {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    display: inline-block;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+#PageNum li a {
+    padding: 8px 12px;
+    display: inline-block;
+    text-decoration: none;
+    color: #007bff;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+#PageNum li a:hover {
+    background-color: #e9ecef;
+}
+
+/* 全选复选框样式 */
+#selectAllOrder {
+    margin-right: 5px;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* 全选复选框的半选状态 */
+#selectAllOrder:indeterminate {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+
+
+/* 商品复选框样式 */
+.order-item-checkbox {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* 确认删除对话框样式 */
+.confirm-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+}
+
+.confirm-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    min-width: 300px;
+}
+
+.confirm-content h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.confirm-content p {
+    margin-bottom: 30px;
+    color: #666;
+    font-size: 16px;
+}
+
+.confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.confirm-btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.confirm-btn.yes {
+    background-color: #dc3545;
+    color: white;
+}
+
+.confirm-btn.yes:hover {
+    background-color: #c82333;
+}
+
+.confirm-btn.no {
+    background-color: #6c757d;
+    color: white;
+}
+
+.confirm-btn.no:hover {
+    background-color: #5a6268;
+}
+</style>
+
+<script>
+// 全选/取消全选功能
+function toggleAllOrderCheckboxes() {
+    const selectAllCheckbox = document.getElementById('selectAllOrder');
+    const itemCheckboxes = document.querySelectorAll('.order-item-checkbox');
+    
+    itemCheckboxes.forEach(checkbox => {
+        checkbox.checked = selectAllCheckbox.checked;
+    });
+}
+
+// 更新全选复选框状态
+function updateOrderSelectAll() {
+    const selectAllCheckbox = document.getElementById('selectAllOrder');
+    const itemCheckboxes = document.querySelectorAll('.order-item-checkbox');
+    const checkedBoxes = document.querySelectorAll('.order-item-checkbox:checked');
+    
+    if (checkedBoxes.length === itemCheckboxes.length && itemCheckboxes.length > 0) {
+        selectAllCheckbox.checked = true;
+        selectAllCheckbox.indeterminate = false;
+    } else if (checkedBoxes.length === 0) {
+        selectAllCheckbox.checked = false;
+        selectAllCheckbox.indeterminate = false;
+    } else {
+        selectAllCheckbox.checked = false;
+        selectAllCheckbox.indeterminate = true;
+    }
+}
+
+// 确认退出登录
+function confirmLogout() {
+    var dialog = document.createElement('div');
+    dialog.className = 'confirm-dialog';
+    dialog.innerHTML = `
+        <div class="confirm-content">
+            <h3>确认退出</h3>
+            <p>您确定要退出登录吗？</p>
+            <div class="confirm-buttons">
+                <button class="confirm-btn yes" onclick="executeLogout()">确认退出</button>
+                <button class="confirm-btn no" onclick="closeConfirmDialog()">取消</button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(dialog);
+    dialog.style.display = 'block';
+    
+    dialog.addEventListener('click', function(e) {
+        if (e.target === dialog) {
+            closeConfirmDialog();
+        }
+    });
+}
+
+// 执行退出登录
+function executeLogout() {
+    closeConfirmDialog();
+    window.location.href = '/logout';
+}
+
+// 关闭确认对话框
+function closeConfirmDialog() {
+    var dialog = document.querySelector('.confirm-dialog');
+    if (dialog) {
+        dialog.remove();
+    }
+}
+
+// 页面加载完成后初始化
+document.addEventListener('DOMContentLoaded', function() {
+    updateOrderSelectAll();
+});
+</script>
+
+</body>
+</html>

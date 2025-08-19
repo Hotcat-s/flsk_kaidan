@@ -1,0 +1,1373 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>伊心语开单管理系统</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="generator" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <link href="{{ url_for('static', filename='css/haiersoft.css') }}" rel="stylesheet" type="text/css" media="screen,print"/>
+    <link href="{{ url_for('static', filename='css/print.css') }}" rel="stylesheet" type="text/css" media="print"/>
+    <script src="{{ url_for('static', filename='js/jquery-1.10.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/side.js') }}" type="text/javascript"></script>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- wrap_left -->
+<div class="wrap_left" id="frmTitle" name="fmTitle">
+    <!-- Logo -->
+    <div id="Logo"><span>人单合一</span></div>
+    <!-- /Logo -->
+
+    <!-- menu_list -->
+    <script>
+        $(function () {
+            $(".menu_list dd");
+            $(".menu_list dt").click(function () {
+                $(this).toggleClass("open").next().slideToggle("fast");
+            });
+        });
+    </script>
+    <div class="menu_list">
+        <dl>
+            <dt><span>品类管理</span></dt>
+            <dd><a href="{{ url_for('goodslist') }}" title="品类管理">品类管理</a>
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类" class="active">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+
+            <dt><span>选购开单</span></dt>
+            <dd><a href="{{ url_for('orderlist') }}" title="选购开单">选购开单</a>
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+
+                {#<dt><span>一级分类名称</span></dt>#}
+                {#<dd><a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+                {##}
+                {#<dt><span>一级分类名称</span></dt>#}
+                {#<dd><a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+                {##}
+                {#<dt><span>一级分类名称</span></dt>#}
+                {#<dd><a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+                {##}
+                {#<dt><span>一级分类名称</span></dt>#}
+                {#<dd><a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+                {##}
+                {#<dt><span>一级分类名称</span></dt>#}
+                {#<dd><a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a>#}
+                {#<a href="" title="二级分类">二级分类</a></dd>#}
+        </dl>
+    </div>
+    <!-- /menu_list -->
+</div>
+<!-- /wrap_left -->
+
+<!-- picBox -->
+<div class="picBox" onclick="switchSysBar()" id="switchPoint"></div>
+<!-- /picBox -->
+
+
+<!-- wrap_right -->
+<div class="wrap_right">
+    <header>
+        <!-- Header -->
+        <div id="Header">
+            <!-- Head -->
+            <div id="Head">
+                <h1 title="伊心语进销存管理系统"><img src="{{ url_for('static', filename='images/common/page_ttl.gif') }}" width="398" height="26"
+                                            alt="伊心语进销存管理系统"></h1>
+                <script language="javascript">
+                    function showmenu(id) {
+                        id.style.visibility = "visible";
+                    }
+
+                    function hidmenu() {
+                        UserList.style.visibility = "hidden";
+                    }
+
+                    document.onclick = hidmenu;
+                </script>
+                <div class="user"><a href="javascript:showmenu(UserList)">admin</a>
+                    <div id="UserList">
+                        <a href="javascript:confirmLogout()">退出</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /Head -->
+            {#<nav>#}
+            {#<ul id="Navi">#}
+            {#<li><a href=""><img src="static/images/common/navi01.png" width="30" height="36" alt="主页管理"><span>主页管理</span></a></li>#}
+            {#<li><a href=""><img src="static/images/common/navi02.png" width="36" height="36" alt="系统管理"><span>系统管理</span></a></li>#}
+            {#<li class="active"><a href=""><img src="static/images/common/navi03.png" width="26" height="36" alt="合同信息"><span>合同信息</span></a></li>#}
+            {#<li><a href=""><img src="static/images/common/navi04.png" width="34" height="36" alt="基础数据"><span>基础数据</span></a></li>#}
+            {#<li><a href=""><img src="static/images/common/navi05.png" width="24" height="36" alt="预算管理"><span>预算管理</span></a></li>#}
+            {#<li><a href=""><img src="static/images/common/navi06.png" width="36" height="36" alt="项目管理"><span>项目管理</span></a></li>#}
+            {#<li><a href=""><img src="static/images/common/navi07.png" width="34" height="36" alt="资金支付-发票"><span>资金支付-发票</span></a></li>#}
+            {#<li><a href=""><img src="static/images/common/navi08.png" width="34" height="36" alt="产品管理信息"><span>产品管理信息</span></a></li>#}
+            {#</ul>#}
+            {#</nav>#}
+        </div>
+        <!-- /Header -->
+    </header>
+
+
+    <!-- Contents -->
+    <div id="Contents">
+        <script type="text/javascript">
+            $(function () {
+                $(".select").each(function () {
+                    var s = $(this);
+                    var z = parseInt(s.css("z-index"));
+                    var dt = $(this).children("dt");
+                    var dd = $(this).children("dd");
+                    var _show = function () {
+                        dd.slideDown(200);
+                        dt.addClass("cur");
+                        s.css("z-index", z + 1);
+                    };
+                    var _hide = function () {
+                        dd.slideUp(200);
+                        dt.removeClass("cur");
+                        s.css("z-index", z);
+                    };
+                    dt.click(function () {
+                        dd.is(":hidden") ? _show() : _hide();
+                    });
+                    dd.find("a").click(function (e) {
+                        dt.html($(this).html());
+                        _hide();
+                        // 阻止默认行为，让链接正常工作
+                        // 不阻止默认行为，让a标签的href正常跳转
+                    });
+                    $("body").click(function (i) {
+                        !$(i.target).parents(".select").first().is(s) ? _hide() : "";
+                    });
+                })
+            })
+        </script>
+        <!-- TopMain -->
+        <div id="TopMain">
+            <!-- selectbox -->
+            <div class="selectbox floatL mag_r20">
+                <span class="sttl">种类：</span>
+                <dl class="select" style="width:200px;">
+                    <dt>{{ current_category_name }}</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="{{ url_for('goodslist') }}">全部</a></li>
+                            {% for category in categories %}
+                                <li><a href="{{ url_for('goodslist', category_id=category[0]) }}">{{ category[1] }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            <!-- /selectbox -->
+
+            <!-- 搜索框 -->
+            <div class="searchbox floatL mag_r20">
+                <form method="GET" action="{{ url_for('goodslist') }}" style="display: flex; align-items: center;">
+                    {% if current_category_id %}
+                        <input type="hidden" name="category_id" value="{{ current_category_id }}">
+                    {% endif %}
+                    <input type="text" name="search" value="{{ search_keyword or '' }}" 
+                           placeholder="搜索商品名称..." 
+                           style="width: 200px; height: 28px; padding: 0 10px; border: 1px solid #ddd; border-radius: 3px;">
+                    <input type="submit" value="查询" 
+                           style="height: 30px; margin-left: 5px; padding: 0 15px; background: #4CAF50; color: white; border: none; border-radius: 3px; cursor: pointer;">
+                </form>
+            </div>
+            <!-- /搜索框 -->
+
+            {#<!-- selectbox -->#}
+            {#<div class="selectbox floatL mag_r20">#}
+            {#<span class="sttl">部门：</span>#}
+            {#<dl class="select" style="width:200px;">#}
+            {#<dt>全部</dt>#}
+            {#<dd><ul>#}
+            {#<li><a href="#">选项选项A</a></li>#}
+            {#<li><a href="#">选项选项B</a></li>#}
+            {#<li><a href="#">选项选项C</a></li>#}
+            {#<li><a href="#">选项选项D</a></li>#}
+            {#<li><a href="#">选项选项E</a></li>#}
+            {#</ul></dd></dl>#}
+            {#</div>#}
+            {#<!-- /selectbox -->#}
+
+            <!-- /btn_box -->
+            <div class="btn_box floatL">
+                <input name="" type="button" value="添加" onclick="showAddModal()"
+                       onmousemove="this.className='input_move'"
+                       onmouseout="this.className='input_out'">
+            </div>
+            
+            <!-- 类别管理按钮 -->
+            <div class="btn_box floatL" style="margin-left: 10px;">
+                <input name="" type="button" value="类别管理" onclick="showCategoryModal()"
+                       onmousemove="this.className='input_move'"
+                       onmouseout="this.className='input_out'">
+            </div>
+
+        </div>
+        <!-- /TopMain -->
+
+        <!-- MainForm -->
+        <div id="MainForm">
+            <!-- Flash消息显示区域 -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-messages">
+                        {% for category, message in messages %}
+                            <div class="flash-message {{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            
+            <div class="form_boxA">
+                <h2>年度预算列表</h2>
+                <table cellpadding="0" cellspacing="0" id="goodsTable">
+                    <tr>
+                        <th><input type="checkbox" id="selectAll" onchange="toggleAllCheckboxes()"> 全选</th>
+                        <th>序号</th>
+                        <th>商品名称</th>
+                        <th>类别</th>
+                        <th>价格</th>
+                        <th>操作</th>
+                    </tr>
+                    {% if goods_list and goods_list|length > 0 %}
+                        {% for i in goods_list %}
+                            <tr>
+                                <td><input type="checkbox" class="item-checkbox" value="{{ i[0] }}" onchange="updateBatchDeleteButton()"></td>
+                                <td>{{ i[0] }}</td>
+                                <td>{{ i[1] }}</td>
+                                <td>{{ i[3] if i[3] else '未分类' }}</td>
+                                <td>¥{{ "%.2f"|format(i[2]|float) }}</td>
+                                <td>
+                                    <a href="#" onclick="confirmDelete({{ i[0] }}, '{{ i[1] }}')">删除</a> | 
+                                    <a href="#" onclick="showEditModal({{ i[0] }})">编辑</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 20px; color: #999;">
+                                暂无商品数据
+                            </td>
+                        </tr>
+                    {% endif %}
+
+
+                </table>
+                
+                <!-- 批量操作按钮 -->
+                <div class="batch-actions" style="margin: 10px 0; padding: 10px; background: #f9f9f9; border-radius: 5px;">
+                    <button id="batchDeleteBtn" onclick="confirmBatchDelete()" 
+                            style="background: #dc3545; color: white; border: none; padding: 8px 16px; border-radius: 3px; cursor: pointer; display: none;">
+                        删除选中商品
+                    </button>
+                    <span id="selectedCount" style="margin-left: 10px; color: #666; font-size: 14px;"></span>
+                </div>
+                
+                <p class="msg">共找到{{ pagination.total_count }}条商品记录，当前显示从第{{ pagination.start_record }}条至第{{ pagination.end_record }}条</p>
+            </div>
+        </div>
+        <!-- /MainForm -->
+
+
+        <!-- PageNum -->
+        {% if pagination.total_pages > 1 %}
+        <ul id="PageNum">
+            <!-- 首页 -->
+            {% if pagination.page > 1 %}
+                {% if current_category_id %}
+                    <li><a href="{{ url_for('goodslist', category_id=current_category_id, page=1, search=search_keyword) }}">首页</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('goodslist', page=1, search=search_keyword) }}">首页</a></li>
+                {% endif %}
+            {% else %}
+                <li><span class="disabled">首页</span></li>
+            {% endif %}
+            
+            <!-- 上一页 -->
+            {% if pagination.has_prev %}
+                {% if current_category_id %}
+                    <li><a href="{{ url_for('goodslist', category_id=current_category_id, page=pagination.prev_page, search=search_keyword) }}">上一页</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('goodslist', page=pagination.prev_page, search=search_keyword) }}">上一页</a></li>
+                {% endif %}
+            {% else %}
+                <li><span class="disabled">上一页</span></li>
+            {% endif %}
+            
+            <!-- 页码 -->
+            {% for page_num in pagination.page_range %}
+                {% if page_num == pagination.page %}
+                    <li><span class="current">{{ page_num }}</span></li>
+                {% else %}
+                    {% if current_category_id %}
+                        <li><a href="{{ url_for('goodslist', category_id=current_category_id, page=page_num, search=search_keyword) }}">{{ page_num }}</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('goodslist', page=page_num, search=search_keyword) }}">{{ page_num }}</a></li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            
+            <!-- 下一页 -->
+            {% if pagination.has_next %}
+                {% if current_category_id %}
+                    <li><a href="{{ url_for('goodslist', category_id=current_category_id, page=pagination.next_page, search=search_keyword) }}">下一页</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('goodslist', page=pagination.next_page, search=search_keyword) }}">下一页</a></li>
+                {% endif %}
+            {% else %}
+                <li><span class="disabled">下一页</span></li>
+            {% endif %}
+            
+            <!-- 尾页 -->
+            {% if pagination.page < pagination.total_pages %}
+                {% if current_category_id %}
+                    <li><a href="{{ url_for('goodslist', category_id=current_category_id, page=pagination.total_pages, search=search_keyword) }}">尾页</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('goodslist', page=pagination.total_pages, search=search_keyword) }}">尾页</a></li>
+                {% endif %}
+            {% else %}
+                <li><span class="disabled">尾页</span></li>
+            {% endif %}
+        </ul>
+        {% endif %}
+        <!-- /PageNum -->
+    </div>
+    <!-- /Contents -->
+
+    <!-- /footer -->
+    <footer>
+        <address>电子邮箱：xx@cc.com 技术支持：球球因项目组<br>义乌黄姐电子商务有限公司版权所有 Copyright &copy; 2015 Haiersoft Corporation, All
+            Rights.
+        </address>
+    </footer>
+    <!-- /footer -->
+
+</div>
+<!-- /wrap_right -->
+
+<!-- 添加商品模态框 -->
+<div id="addModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>添加商品</h3>
+            <span class="close" onclick="closeAddModal()">&times;</span>
+        </div>
+        <form action="{{ url_for('add_goods_api') }}" method="post">
+            <div class="form-group">
+                <label for="add_goods_name">商品名称：</label>
+                <input type="text" id="add_goods_name" name="goods_name" required>
+            </div>
+            <div class="form-group">
+                <label for="add_category">商品类别：</label>
+                <select id="add_category" name="category_id" onchange="toggleNewCategoryInput()">
+                    <option value="">请选择类别</option>
+                    {% for category in categories %}
+                        <option value="{{ category[0] }}">{{ category[1] }}</option>
+                    {% endfor %}
+                    <option value="new">+ 新建类别</option>
+                </select>
+                <div id="newCategoryGroup" style="display: none; margin-top: 10px;">
+                    <input type="text" id="new_category_name" name="new_category_name" placeholder="输入新类别名称" 
+                           style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 3px;">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="add_price">商品价格：</label>
+                <input type="number" id="add_price" name="price" step="0.01" min="0" required>
+            </div>
+            <div class="modal-buttons">
+                <button type="button" class="modal-btn secondary" onclick="closeAddModal()">取消</button>
+                <button type="submit" class="modal-btn primary">添加</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- 编辑商品模态框 -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>编辑商品</h3>
+            <span class="close" onclick="closeEditModal()">&times;</span>
+        </div>
+        <form id="editForm" method="post">
+            <div class="form-group">
+                <label for="edit_goods_name">商品名称：</label>
+                <input type="text" id="edit_goods_name" name="goods_name" required>
+            </div>
+            <div class="form-group">
+                <label for="edit_category">商品类别：</label>
+                <select id="edit_category" name="category_id">
+                    <option value="">请选择类别</option>
+                    {% for category in categories %}
+                        <option value="{{ category[0] }}">{{ category[1] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="edit_price">商品价格：</label>
+                <input type="number" id="edit_price" name="price" step="0.01" min="0" required>
+            </div>
+            <div class="modal-buttons">
+                <button type="button" class="modal-btn secondary" onclick="closeEditModal()">取消</button>
+                <button type="submit" class="modal-btn primary">保存</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- 类别管理模态框 -->
+<div id="categoryModal" class="modal">
+    <div class="modal-content" style="max-width: 600px;">
+        <div class="modal-header">
+            <h3>类别管理</h3>
+            <span class="close" onclick="closeCategoryModal()">&times;</span>
+        </div>
+        <div class="category-management">
+            <div class="category-list">
+                <h4>现有类别</h4>
+                <div id="categoryList">
+                    <!-- 动态加载类别列表 -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 编辑类别模态框 -->
+<div id="editCategoryModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>编辑类别</h3>
+            <span class="close" onclick="closeEditCategoryModal()">&times;</span>
+        </div>
+        <form id="editCategoryForm">
+            <div class="form-group">
+                <label for="edit_category_name">类别名称：</label>
+                <input type="text" id="edit_category_name" name="category_name" required>
+            </div>
+            <div class="form-group">
+                <label for="edit_category_desc">类别描述：</label>
+                <textarea id="edit_category_desc" name="description" rows="3" 
+                         style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 3px;"></textarea>
+            </div>
+            <div class="modal-buttons">
+                <button type="button" class="modal-btn secondary" onclick="closeEditCategoryModal()">取消</button>
+                <button type="submit" class="modal-btn primary">保存</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+/* Flash消息样式 */
+.flash-messages {
+    margin: 20px 0;
+}
+
+.flash-message {
+    padding: 12px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 14px;
+    animation: slideInDown 0.3s ease-out;
+}
+
+.flash-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* 动画效果 */
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 确认删除对话框样式 */
+.confirm-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+}
+
+.confirm-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    min-width: 300px;
+}
+
+.confirm-content h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.confirm-content p {
+    margin-bottom: 30px;
+    color: #666;
+    font-size: 16px;
+}
+
+.confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.confirm-btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.confirm-btn.yes {
+    background-color: #dc3545;
+    color: white;
+}
+
+.confirm-btn.yes:hover {
+    background-color: #c82333;
+}
+
+.confirm-btn.no {
+    background-color: #6c757d;
+    color: white;
+}
+
+.confirm-btn.no:hover {
+    background-color: #5a6268;
+}
+
+/* 分页样式改进 */
+#PageNum li .disabled {
+    color: #ccc;
+    cursor: not-allowed;
+    padding: 8px 12px;
+    display: inline-block;
+}
+
+#PageNum li .current {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    display: inline-block;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+#PageNum li a {
+    padding: 8px 12px;
+    display: inline-block;
+    text-decoration: none;
+    color: #007bff;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+#PageNum li a:hover {
+    background-color: #e9ecef;
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 30px;
+    border: none;
+    border-radius: 10px;
+    width: 500px;
+    max-width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #333;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.modal-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.modal-btn.primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.modal-btn.primary:hover {
+    background-color: #0056b3;
+}
+
+.modal-btn.secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.modal-btn.secondary:hover {
+    background-color: #5a6268;
+}
+
+/* 批量删除相关样式 */
+.batch-actions {
+    border-left: 4px solid #dc3545;
+}
+
+#batchDeleteBtn:hover {
+    background-color: #c82333 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* 复选框样式优化 */
+.item-checkbox, #selectAll {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* 表格第一列（复选框列）样式 */
+#goodsTable th:first-child,
+#goodsTable td:first-child {
+    width: 60px;
+    text-align: center;
+}
+
+/* 全选复选框的半选状态 */
+#selectAll:indeterminate {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+
+
+/* 类别管理样式 */
+.category-management {
+    padding: 20px 0;
+}
+
+.category-list h4 {
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    margin: 8px 0;
+    background: #f8f9fa;
+    border-radius: 5px;
+    border-left: 4px solid #007bff;
+}
+
+.category-info {
+    flex-grow: 1;
+}
+
+.category-name {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.category-desc {
+    color: #666;
+    font-size: 12px;
+}
+
+.category-stats {
+    color: #888;
+    font-size: 12px;
+    margin-right: 15px;
+}
+
+.category-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.category-btn {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.3s;
+}
+
+.category-btn.edit {
+    background: #17a2b8;
+    color: white;
+}
+
+.category-btn.edit:hover {
+    background: #138496;
+}
+
+.category-btn.delete {
+    background: #dc3545;
+    color: white;
+}
+
+.category-btn.delete:hover {
+    background: #c82333;
+}
+</style>
+
+<script>
+// 确认删除函数
+function confirmDelete(goodsId, goodsName) {
+    // 创建确认对话框
+    var dialog = document.createElement('div');
+    dialog.className = 'confirm-dialog';
+    dialog.innerHTML = `
+        <div class="confirm-content">
+            <h3>确认删除</h3>
+            <p>您确定要删除商品 "<strong>${goodsName}</strong>" 吗？</p>
+            <p style="color: #dc3545; font-size: 14px;">此操作不可撤销！</p>
+            <div class="confirm-buttons">
+                <button class="confirm-btn yes" onclick="deleteGoods(${goodsId})">确认删除</button>
+                <button class="confirm-btn no" onclick="closeConfirmDialog()">取消</button>
+            </div>
+        </div>
+    `;
+    
+    // 添加到页面
+    document.body.appendChild(dialog);
+    
+    // 显示对话框
+    dialog.style.display = 'block';
+    
+    // 添加点击背景关闭功能
+    dialog.addEventListener('click', function(e) {
+        if (e.target === dialog) {
+            closeConfirmDialog();
+        }
+    });
+}
+
+// 执行删除
+function deleteGoods(goodsId) {
+    window.location.href = '/delete_goods/' + goodsId;
+}
+
+// 关闭确认对话框
+function closeConfirmDialog() {
+    var dialog = document.querySelector('.confirm-dialog');
+    if (dialog) {
+        dialog.remove();
+    }
+}
+
+// 显示添加商品模态框
+function showAddModal() {
+    document.getElementById('addModal').style.display = 'block';
+    // 清空表单
+    document.getElementById('add_goods_name').value = '';
+    document.getElementById('add_category').value = '';
+    document.getElementById('add_price').value = '';
+}
+
+// 关闭添加商品模态框
+function closeAddModal() {
+    document.getElementById('addModal').style.display = 'none';
+}
+
+// 显示编辑商品模态框
+function showEditModal(goodsId) {
+    // 获取商品信息
+    fetch('/api/goods/' + goodsId)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // 填充表单
+                document.getElementById('edit_goods_name').value = data.data.goods_name;
+                document.getElementById('edit_category').value = data.data.category_id || '';
+                document.getElementById('edit_price').value = data.data.price;
+                
+                // 设置表单提交地址
+                document.getElementById('editForm').action = '/edit_goods/' + goodsId;
+                
+                // 显示模态框
+                document.getElementById('editModal').style.display = 'block';
+            } else {
+                alert('获取商品信息失败：' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('获取商品信息时发生错误');
+        });
+}
+
+// 关闭编辑商品模态框
+function closeEditModal() {
+    document.getElementById('editModal').style.display = 'none';
+}
+
+// 全选/取消全选功能
+function toggleAllCheckboxes() {
+    const selectAllCheckbox = document.getElementById('selectAll');
+    const itemCheckboxes = document.querySelectorAll('.item-checkbox');
+    
+    itemCheckboxes.forEach(checkbox => {
+        checkbox.checked = selectAllCheckbox.checked;
+    });
+    
+    updateBatchDeleteButton();
+}
+
+// 更新批量删除按钮状态
+function updateBatchDeleteButton() {
+    const checkedBoxes = document.querySelectorAll('.item-checkbox:checked');
+    const batchDeleteBtn = document.getElementById('batchDeleteBtn');
+    const selectedCount = document.getElementById('selectedCount');
+    const selectAllCheckbox = document.getElementById('selectAll');
+    
+    if (checkedBoxes.length > 0) {
+        batchDeleteBtn.style.display = 'inline-block';
+        selectedCount.textContent = `已选择 ${checkedBoxes.length} 个商品`;
+    } else {
+        batchDeleteBtn.style.display = 'none';
+        selectedCount.textContent = '';
+    }
+    
+    // 更新全选复选框状态
+    const allCheckboxes = document.querySelectorAll('.item-checkbox');
+    if (checkedBoxes.length === allCheckboxes.length && allCheckboxes.length > 0) {
+        selectAllCheckbox.checked = true;
+        selectAllCheckbox.indeterminate = false;
+    } else if (checkedBoxes.length > 0) {
+        selectAllCheckbox.checked = false;
+        selectAllCheckbox.indeterminate = true;
+    } else {
+        selectAllCheckbox.checked = false;
+        selectAllCheckbox.indeterminate = false;
+    }
+}
+
+// 批量删除确认
+function confirmBatchDelete() {
+    const checkedBoxes = document.querySelectorAll('.item-checkbox:checked');
+    
+    if (checkedBoxes.length === 0) {
+        // 创建提示对话框
+        var dialog = document.createElement('div');
+        dialog.className = 'confirm-dialog';
+        dialog.innerHTML = `
+            <div class="confirm-content">
+                <h3>提示</h3>
+                <p>请选择要删除的商品</p>
+                <div class="confirm-buttons">
+                    <button class="confirm-btn no" onclick="closeConfirmDialog()">确定</button>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(dialog);
+        dialog.style.display = 'block';
+        
+        dialog.addEventListener('click', function(e) {
+            if (e.target === dialog) {
+                closeConfirmDialog();
+            }
+        });
+        return;
+    }
+    
+    const goodsIds = Array.from(checkedBoxes).map(cb => cb.value);
+    const count = goodsIds.length;
+    
+    // 创建批量删除确认对话框
+    var dialog = document.createElement('div');
+    dialog.className = 'confirm-dialog';
+    dialog.innerHTML = `
+        <div class="confirm-content">
+            <h3>确认批量删除</h3>
+            <p>您确定要删除选中的 <strong>${count}</strong> 个商品吗？</p>
+            <p style="color: #dc3545; font-size: 14px;">此操作不可撤销！</p>
+            <div class="confirm-buttons">
+                <button class="confirm-btn yes" onclick="executeBatchDelete([${goodsIds.join(',')}])">确认删除</button>
+                <button class="confirm-btn no" onclick="closeConfirmDialog()">取消</button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(dialog);
+    dialog.style.display = 'block';
+    
+    dialog.addEventListener('click', function(e) {
+        if (e.target === dialog) {
+            closeConfirmDialog();
+        }
+    });
+}
+
+// 执行批量删除
+function executeBatchDelete(goodsIds) {
+    closeConfirmDialog();
+    batchDeleteGoods(goodsIds);
+}
+
+// 执行批量删除
+function batchDeleteGoods(goodsIds) {
+    // 创建表单数据
+    const formData = new FormData();
+    goodsIds.forEach(id => formData.append('goods_ids', id));
+    
+    fetch('/batch_delete_goods', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showSuccessDialog(`成功删除 ${data.deleted_count} 个商品`);
+            setTimeout(() => {
+                location.reload(); // 刷新页面
+            }, 1500); // 延迟1.5秒后刷新，让用户看到成功提示
+        } else {
+            showErrorDialog('删除失败：' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showErrorDialog('删除时发生错误');
+    });
+}
+
+// 新建类别输入框切换
+function toggleNewCategoryInput() {
+    const categorySelect = document.getElementById('add_category');
+    const newCategoryGroup = document.getElementById('newCategoryGroup');
+    const newCategoryInput = document.getElementById('new_category_name');
+    
+    if (categorySelect.value === 'new') {
+        newCategoryGroup.style.display = 'block';
+        newCategoryInput.required = true;
+    } else {
+        newCategoryGroup.style.display = 'none';
+        newCategoryInput.required = false;
+        newCategoryInput.value = '';
+    }
+}
+
+// 显示类别管理模态框
+function showCategoryModal() {
+    loadCategoryList();
+    document.getElementById('categoryModal').style.display = 'block';
+}
+
+// 关闭类别管理模态框
+function closeCategoryModal() {
+    document.getElementById('categoryModal').style.display = 'none';
+}
+
+// 加载类别列表
+function loadCategoryList() {
+    fetch('/api/categories')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                renderCategoryList(data.categories);
+            } else {
+                showErrorDialog('加载类别列表失败：' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showErrorDialog('加载类别列表时发生错误');
+        });
+}
+
+// 渲染类别列表
+function renderCategoryList(categories) {
+    const categoryList = document.getElementById('categoryList');
+    
+    if (categories.length === 0) {
+        categoryList.innerHTML = '<p style="text-align: center; color: #999; padding: 20px;">暂无类别</p>';
+        return;
+    }
+    
+    let html = '';
+    categories.forEach(category => {
+        html += `
+            <div class="category-item">
+                <div class="category-info">
+                    <div class="category-name">${category.name}</div>
+                    <div class="category-desc">${category.description || '暂无描述'}</div>
+                </div>
+                <div class="category-stats">${category.goods_count} 个商品</div>
+                <div class="category-actions">
+                    <button class="category-btn edit" onclick="showEditCategoryModal(${category.id}, '${category.name}', '${category.description || ''}')">编辑</button>
+                    <button class="category-btn delete" onclick="confirmDeleteCategory(${category.id}, '${category.name}', ${category.goods_count})">删除</button>
+                </div>
+            </div>
+        `;
+    });
+    
+    categoryList.innerHTML = html;
+}
+
+// 显示编辑类别模态框
+function showEditCategoryModal(categoryId, name, description) {
+    document.getElementById('edit_category_name').value = name;
+    document.getElementById('edit_category_desc').value = description;
+    
+    // 设置表单提交处理
+    const form = document.getElementById('editCategoryForm');
+    form.onsubmit = function(e) {
+        e.preventDefault();
+        updateCategory(categoryId);
+    };
+    
+    document.getElementById('editCategoryModal').style.display = 'block';
+}
+
+// 关闭编辑类别模态框
+function closeEditCategoryModal() {
+    document.getElementById('editCategoryModal').style.display = 'none';
+}
+
+// 更新类别
+function updateCategory(categoryId) {
+    const formData = new FormData();
+    formData.append('category_name', document.getElementById('edit_category_name').value);
+    formData.append('description', document.getElementById('edit_category_desc').value);
+    
+    fetch(`/api/categories/${categoryId}`, {
+        method: 'PUT',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showSuccessDialog('类别更新成功');
+            closeEditCategoryModal();
+            loadCategoryList();
+        } else {
+            showErrorDialog('类别更新失败：' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showErrorDialog('更新类别时发生错误');
+    });
+}
+
+// 确认删除类别
+function confirmDeleteCategory(categoryId, categoryName, goodsCount) {
+    // 创建删除类别确认对话框
+    var dialog = document.createElement('div');
+    dialog.className = 'confirm-dialog';
+    
+    let warningText = '';
+    if (goodsCount > 0) {
+        warningText = `<p style="color: #dc3545; font-size: 14px; margin-bottom: 15px;">
+            <strong>警告：</strong>该类别下有 ${goodsCount} 个商品，删除类别后这些商品也会被删除！
+        </p>`;
+    }
+    
+    dialog.innerHTML = `
+        <div class="confirm-content">
+            <h3>确认删除类别</h3>
+            <p>您确定要删除类别 "<strong>${categoryName}</strong>" 吗？</p>
+            ${warningText}
+            <p style="color: #dc3545; font-size: 14px;">此操作不可撤销！</p>
+            <div class="confirm-buttons">
+                <button class="confirm-btn yes" onclick="executeDeleteCategory(${categoryId})">确认删除</button>
+                <button class="confirm-btn no" onclick="closeConfirmDialog()">取消</button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(dialog);
+    dialog.style.display = 'block';
+    
+    dialog.addEventListener('click', function(e) {
+        if (e.target === dialog) {
+            closeConfirmDialog();
+        }
+    });
+}
+
+// 执行删除类别
+function executeDeleteCategory(categoryId) {
+    closeConfirmDialog();
+    deleteCategory(categoryId);
+}
+
+// 显示成功提示对话框
+function showSuccessDialog(message) {
+    var dialog = document.createElement('div');
+    dialog.className = 'confirm-dialog';
+    dialog.innerHTML = `
+        <div class="confirm-content">
+            <h3 style="color: #28a745;">操作成功</h3>
+            <p>${message}</p>
+            <div class="confirm-buttons">
+                <button class="confirm-btn no" onclick="closeConfirmDialog()" style="background-color: #28a745;">确定</button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(dialog);
+    dialog.style.display = 'block';
+    
+    dialog.addEventListener('click', function(e) {
+        if (e.target === dialog) {
+            closeConfirmDialog();
+        }
+    });
+}
+
+// 显示错误提示对话框
+function showErrorDialog(message) {
+    var dialog = document.createElement('div');
+    dialog.className = 'confirm-dialog';
+    dialog.innerHTML = `
+        <div class="confirm-content">
+            <h3 style="color: #dc3545;">操作失败</h3>
+            <p>${message}</p>
+            <div class="confirm-buttons">
+                <button class="confirm-btn yes" onclick="closeConfirmDialog()">确定</button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(dialog);
+    dialog.style.display = 'block';
+    
+    dialog.addEventListener('click', function(e) {
+        if (e.target === dialog) {
+            closeConfirmDialog();
+        }
+    });
+}
+
+// 删除类别
+function deleteCategory(categoryId) {
+    fetch(`/api/categories/${categoryId}`, {
+        method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showSuccessDialog(`删除成功！${data.message}`);
+            loadCategoryList();
+        } else {
+            showErrorDialog('删除失败：' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showErrorDialog('删除类别时发生错误');
+    });
+}
+
+// 点击模态框背景关闭
+window.onclick = function(event) {
+    var addModal = document.getElementById('addModal');
+    var editModal = document.getElementById('editModal');
+    var categoryModal = document.getElementById('categoryModal');
+    var editCategoryModal = document.getElementById('editCategoryModal');
+    
+    if (event.target == addModal) {
+        closeAddModal();
+    }
+    if (event.target == editModal) {
+        closeEditModal();
+    }
+    if (event.target == categoryModal) {
+        closeCategoryModal();
+    }
+    if (event.target == editCategoryModal) {
+        closeEditCategoryModal();
+    }
+}
+
+// 确认退出登录
+function confirmLogout() {
+    var dialog = document.createElement('div');
+    dialog.className = 'confirm-dialog';
+    dialog.innerHTML = `
+        <div class="confirm-content">
+            <h3>确认退出</h3>
+            <p>您确定要退出登录吗？</p>
+            <div class="confirm-buttons">
+                <button class="confirm-btn yes" onclick="executeLogout()">确认退出</button>
+                <button class="confirm-btn no" onclick="closeConfirmDialog()">取消</button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(dialog);
+    dialog.style.display = 'block';
+    
+    dialog.addEventListener('click', function(e) {
+        if (e.target === dialog) {
+            closeConfirmDialog();
+        }
+    });
+}
+
+// 执行退出登录
+function executeLogout() {
+    closeConfirmDialog();
+    window.location.href = '/logout';
+}
+
+// 页面加载完成后，自动隐藏flash消息
+document.addEventListener('DOMContentLoaded', function() {
+    var messages = document.querySelectorAll('.flash-message');
+    messages.forEach(function(message) {
+        setTimeout(function() {
+            message.style.opacity = '0';
+            message.style.transform = 'translateY(-20px)';
+            setTimeout(function() {
+                if (message.parentNode) {
+                    message.parentNode.removeChild(message);
+                }
+            }, 300);
+        }, 3000); // 3秒后自动消失
+    });
+});
+</script>
+
+</body>
+</html>
